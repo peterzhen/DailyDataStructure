@@ -16,7 +16,7 @@ This will start up the application and provide you with your data structure and 
 
 ## The Code
 
-ProgrammerQuiz is built using the `Amazon Alexa SDK` using Node and `JavaScript` as the language of choice.  Leveraging the `Alexa SDK`, I set up event listeners for specific voice commands to interact with the user when the program is active.  When a new request for a data structure is activated, a random data structure from the preset data is selected and is given to the user.
+Daily Data Structure is built using the `Amazon Alexa SDK` using Node and `JavaScript` as the language of choice.  Leveraging the `Alexa SDK`, I set up event listeners for specific voice commands to interact with the user when the program is active.  When a new request for a data structure is activated, a random data structure from the preset data is selected and is given to the user.
 
 ```javascript
 function createSpeechObject(optionsParam) {
