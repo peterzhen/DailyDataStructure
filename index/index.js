@@ -1,5 +1,4 @@
-
-var APP_ID = undefined; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = undefined;
 
 var DATASTRUCTURES = [
   "Your Daily Data Structure is Linked Lists.  Linked lists are good for small amounts of data and non predictable data.  Searching is slow and the insertion order matters when searching.   Linked Lists are generally used when data is frequently inserted and deleted.  Linked Lists have a Search Time Complexity of O. of N.  A constant insertion speed.  And time complexity of O. of N for deletion",
@@ -8,9 +7,6 @@ var DATASTRUCTURES = [
   "Your Daily Data Structure is a Hash Table.  Hash Tables are good for large amounts of data, provides fast search and insertion.  This is the fastest data storage structure.  A hash table is not sensitive to the order in which the data is inserted.  The time complexity of searches, insertion and deletion is constant time.  If ordered traversal is necessary, a binary search tree is usually the better choice."
 ];
 
-/**
- * The AlexaSkill prototype and helper functions
- */
 var AlexaSkill = require('./AlexaSkill');
 
 var Question = function () {
@@ -22,12 +18,11 @@ Question.prototype = Object.create(AlexaSkill.prototype);
 Question.prototype.constructor = Question;
 
 Question.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    //console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
-    // any initialization logic goes here
+    console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
 };
 
 Question.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    //console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
+    console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
     handleNewQuestionRequest(response);
 };
 
@@ -35,8 +30,7 @@ Question.prototype.eventHandlers.onLaunch = function (launchRequest, session, re
  * Overridden to show that a subclass can override this function to teardown session state.
  */
 Question.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
-    // any cleanup logic goes here
+    console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
 };
 
 Question.prototype.intentHandlers = {
@@ -60,11 +54,9 @@ Question.prototype.intentHandlers = {
 };
 
 function handleNewQuestionRequest(response) {
-    // Get a random space fact from the space facts list
     var questionIndex = Math.floor(Math.random() * DATASTRUCTURES.length);
     var randomQuestion = DATASTRUCTURES[questionIndex];
 
-    // Create speech output
     var speechOutput = "Here's your Daily Data Structure: " + randomQuestion;
     var cardTitle = "Your Daily Data Structure";
     response.tellWithCard(speechOutput, cardTitle, speechOutput);
