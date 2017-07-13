@@ -23,7 +23,6 @@ Question.prototype.constructor = Question;
 
 Question.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     //console.log("onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
-    // any initialization logic goes here
 };
 
 Question.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
