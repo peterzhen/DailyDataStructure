@@ -36,7 +36,6 @@ Question.prototype.eventHandlers.onLaunch = function (launchRequest, session, re
  */
 Question.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
     //console.log("onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
-    // any cleanup logic goes here
 };
 
 Question.prototype.intentHandlers = {
@@ -60,7 +59,6 @@ Question.prototype.intentHandlers = {
 };
 
 function handleNewQuestionRequest(response) {
-    // Get a random space fact from the space facts list
     var questionIndex = Math.floor(Math.random() * DATASTRUCTURES.length);
     var randomQuestion = DATASTRUCTURES[questionIndex];
 
@@ -72,7 +70,6 @@ function handleNewQuestionRequest(response) {
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    // Create an instance of the SpaceGeek skill.
     var question = new Question();
     question.execute(event, context);
 };
